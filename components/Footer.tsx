@@ -228,7 +228,7 @@ const Footer = () => (
               className="hover:text-deep-orange transition-colors flex items-center gap-1.5"
             >
               <FaEnvelope size={12} />
-              <span>vinay@seizit.com</span>
+              <span>vinay@seizit.co</span>
             </a>
             <a
               href="tel:+919370466585"
