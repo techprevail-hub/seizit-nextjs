@@ -1,6 +1,7 @@
 "use client";
 import { motion } from "framer-motion";
 import Link from "next/link";
+import Image from "next/image";
 import { 
   Hero, 
   TrustSection, 
@@ -16,6 +17,13 @@ import {
 } from "@/components/Sections";
 
 export default function Home() {
+  // Logo configuration
+  const logos = [
+    { name: "Elevizo", src: "/Trusted-by-companies/elevizo.png", width: 160, height: 60 },
+    { name: "Labmentix", src: "/Trusted-by-companies/labmentix.png", width: 180, height: 60 },
+    { name: "Prevail", src: "/Trusted-by-companies/Prevail.png", width: 160, height: 60 }
+  ];
+
   return (
     <main>
       <Hero />
@@ -59,15 +67,22 @@ export default function Home() {
           >
             {[...Array(6)].map((_, setIndex) => (
               <div key={setIndex} className="flex gap-12 sm:gap-20 items-center px-6 sm:px-10">
-                {["Elevizo", "Labmentix", "Prevail"].map((name, i) => (
+                {logos.map((logo, i) => (
                   <div 
                     key={`${setIndex}-${i}`}
                     className="group relative"
                   >
                     <div className="absolute -inset-4 bg-white/5 rounded-2xl blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-                    <span className="relative text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-black tracking-tighter text-white/30 hover:text-white transition-all duration-300 cursor-default whitespace-nowrap shrink-0 group-hover:scale-110 inline-block">
-                      {name}
-                    </span>
+                    <div className="relative flex items-center justify-center transition-all duration-300 group-hover:scale-110">
+                      <Image
+                        src={logo.src}
+                        alt={logo.name}
+                        width={logo.width}
+                        height={logo.height}
+                        className="object-contain brightness-90 hover:brightness-100 transition-all duration-300"
+                        style={{ width: 'auto', height: 'auto', maxHeight: '60px' }}
+                      />
+                    </div>
                   </div>
                 ))}
               </div>
@@ -88,15 +103,22 @@ export default function Home() {
           >
             {[...Array(6)].map((_, setIndex) => (
               <div key={setIndex} className="flex gap-12 sm:gap-20 items-center px-6 sm:px-10">
-                {["Elevizo", "Labmentix", "Prevail"].map((name, i) => (
+                {logos.map((logo, i) => (
                   <div 
                     key={`${setIndex}-${i}`}
                     className="group relative"
                   >
                     <div className="absolute -inset-4 bg-white/5 rounded-2xl blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-                    <span className="relative text-xl sm:text-2xl md:text-3xl lg:text-4xl font-black tracking-tighter text-white/20 hover:text-white/60 transition-all duration-300 cursor-default whitespace-nowrap shrink-0 group-hover:scale-110 inline-block">
-                      {name}
-                    </span>
+                    <div className="relative flex items-center justify-center transition-all duration-300 group-hover:scale-110">
+                      <Image
+                        src={logo.src}
+                        alt={logo.name}
+                        width={logo.width}
+                        height={logo.height}
+                        className="object-contain brightness-75 hover:brightness-100 transition-all duration-300"
+                        style={{ width: 'auto', height: 'auto', maxHeight: '50px' }}
+                      />
+                    </div>
                   </div>
                 ))}
               </div>
